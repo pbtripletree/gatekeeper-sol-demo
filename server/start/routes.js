@@ -18,4 +18,7 @@ const Route = use("Route");
 
 Route.on("/").render("welcome");
 
-Route.get("/content", "ContentController.get").middleware("validateSignature");
+Route.get("/content", "ContentController.get").middleware([
+  "authenticate",
+  "authorize",
+]);

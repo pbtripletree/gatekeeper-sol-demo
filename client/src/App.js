@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { SiwsMessage } from "gatekeeper-sol";
+import { SiwsMessage } from "siws";
 
 import { useEffect, useState } from "react";
 
@@ -11,6 +11,7 @@ function App() {
 
   const fetchContent = async () => {
     if (apiToken) {
+      console.log(apiToken);
       const contentResponse = await fetch("http://127.0.0.1:3333/content", {
         method: "GET",
         headers: new Headers({ Authorization: apiToken }),
@@ -36,7 +37,6 @@ function App() {
       const signedMessage = await solana.request({
         method: "signMessage",
         params: {
-          // prepare creates signature
           message: message.prepare(),
         },
       });
