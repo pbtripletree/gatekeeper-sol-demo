@@ -11,7 +11,6 @@ function App() {
 
   const fetchContent = async () => {
     if (apiToken) {
-      console.log(apiToken);
       const contentResponse = await fetch("http://127.0.0.1:3333/content", {
         method: "GET",
         headers: new Headers({ Authorization: apiToken }),
@@ -102,7 +101,7 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="header-container">
-          <p className="header">SIWS Demo 👀📈</p>
+          <p className="header">siws / gatekeeper-sol demo 👀📈</p>
           <p className="sub-text">
             Server authentication via wallet signed token
           </p>

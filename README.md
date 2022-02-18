@@ -1,5 +1,7 @@
-Learn how to use https://www.npmjs.com/package/gatekeeper-sol in your node client and server applications.
+Learn how to use `siws` and `gatekeeper-sol` to provide web2 style authentication and authorization in web3.
+
+https://www.npmjs.com/package/siws
+
+https://www.npmjs.com/package/gatekeeper-sol
 
 For use with https://phantom.app/download.
-
-Pretty much also serves as a demo for https://www.npmjs.com/package/siws
