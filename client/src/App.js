@@ -103,7 +103,8 @@ function App() {
         <div className="header-container">
           <p className="header">siws / gatekeeper-sol demo 👀📈</p>
           <p className="sub-text">
-            Server authentication via wallet signed token
+            server authentication and authorization with signed messages and web
+            tokens.
           </p>
           {!walletAddress && renderNotConnectedContainer()}
         </div>

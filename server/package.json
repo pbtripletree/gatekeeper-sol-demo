@@ -26,8 +26,8 @@
     "@adonisjs/lucid": "^6.1.3",
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
-    "gatekeeper-sol": "^1.0.1",
-    "siws": "^1.0.0"
+    "gatekeeper-sol": "^1.0.5",
+    "siws": "^1.0.3"
   },
   "devDependencies": {},
   "autoload": {
