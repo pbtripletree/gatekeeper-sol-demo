@@ -8,6 +8,10 @@ const content = [
     role: "fan",
     content: "You are a fan! My email is sol@sol.sol",
   },
+  {
+    role: "bystander",
+    content: "hey there bystander",
+  },
 ];
 
 module.exports = {

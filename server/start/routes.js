@@ -19,6 +19,7 @@ const Route = use("Route");
 Route.on("/").render("welcome");
 
 Route.get("/content", "ContentController.get").middleware([
+  "catchError",
   "authenticate",
   "authorize",
 ]);

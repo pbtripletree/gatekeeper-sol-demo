@@ -33,23 +33,19 @@ function App() {
         statement: "Use SIWS to authenticate",
       });
 
-      const signedMessage = await solana.request({
-        method: "signMessage",
-        params: {
-          message: message.prepare(),
-        },
-      });
+      const preparedMessage = message.prepare();
 
+      const signedMessage = await solana.signMessage(preparedMessage);
       const token = message.token(signedMessage.signature);
 
       setApiToken(token);
     }
   };
 
-  const connectWallet = async () => {
+  const connectPhantom = async () => {
     const { solana } = window;
 
-    if (solana) {
+    if (solana.isPhantom) {
       const response = await solana.connect();
       setWalletAddress(response.publicKey.toString());
     }
@@ -58,14 +54,11 @@ function App() {
   const checkIfWalletIsConnected = async () => {
     try {
       const { solana } = window;
-
-      if (solana) {
-        if (solana.isPhantom) {
-          const response = await solana.connect({ onlyIfTrusted: true });
-          setWalletAddress(response.publicKey.toString());
-        }
+      if (solana.isPhantom) {
+        const response = await solana.connect({ onlyIfTrusted: true });
+        setWalletAddress(response.publicKey.toString());
       } else {
-        alert("Solana object not found! Get a Phantom Wallet 👻");
+        alert("Solana object not found! Get a Phantom or Math Wallet 👻");
       }
     } catch (error) {
       console.error(error);
@@ -75,9 +68,9 @@ function App() {
   const renderNotConnectedContainer = () => (
     <button
       className="cta-button connect-wallet-button"
-      onClick={connectWallet}
+      onClick={connectPhantom}
     >
-      Sign in
+      Sign in with Phantom
     </button>
   );
 
@@ -110,7 +103,7 @@ function App() {
         </div>
         {/* Check for walletAddress and then pass in walletAddress */}
         {apiToken &&
-          content.map((c, index) => {
+          content?.map((c, index) => {
             return (
               <div
                 key={index}

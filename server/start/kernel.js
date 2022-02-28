@@ -42,6 +42,7 @@ const namedMiddleware = {
   guest: "Adonis/Middleware/AllowGuestOnly",
   authenticate: "App/Middleware/Authenticate",
   authorize: "App/Middleware/Authorize",
+  catchError: "App/Middleware/CatchError",
 };
 
 /*
